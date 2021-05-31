@@ -1,3 +1,4 @@
 .terraform/
 crash.log
 .terraform.lock.hcl
+secret.tfvars
