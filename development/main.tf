@@ -8,5 +8,6 @@ terraform {
 }
 
 resource "aws_instance" "backend" {
+    ami = var.aws_amis[var.aws_region]
     instance_type = "t2.micro"
 }
