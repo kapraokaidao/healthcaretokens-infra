@@ -5,8 +5,18 @@ variable "aws_region" {
 
 variable "aws_amis" {
   default = {
-    ap-southeast-1 = "ami-02f26adf094f51167"
+    ap-southeast-1 = "ami-0d058fe428540cd89"
   }
+}
+
+variable "aws_instance_types" {
+  default = {
+    ap-southeast-1 = "t2.small"
+  }
+}
+
+variable "key_pair_name" {
+  default = "healthcaretokens"
 }
 
 variable "db_username" {
