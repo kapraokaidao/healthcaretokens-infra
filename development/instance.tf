@@ -5,7 +5,7 @@ resource "aws_instance" "backend" {
   security_groups = [aws_security_group.healthcaretokens_service.name]
 
   tags = {
-    Name = "Healthcare token backend"
+    Name = "Healthcare token backend service"
   }
 }
 
@@ -16,7 +16,7 @@ resource "aws_instance" "nhso_web" {
   security_groups = [aws_security_group.healthcaretokens_service.name]
 
   tags = {
-    Name = "NHSO web app"
+    Name = "Healthcare token NHSO web app"
   }
 }
 
@@ -27,7 +27,18 @@ resource "aws_instance" "hospital_web" {
   security_groups = [aws_security_group.healthcaretokens_service.name]
 
   tags = {
-    Name = "Hospital web app"
+    Name = " Healthcare token hospital web app"
+  }
+}
+
+resource "aws_instance" "sms" {
+  ami           = var.aws_amis[var.aws_region]
+  instance_type = var.aws_instance_types[var.aws_region]
+  key_name = var.key_pair_name
+  security_groups = [aws_security_group.healthcaretokens_service.name]
+
+  tags = {
+    Name = "Healthcare token sms service"
   }
 }
 
