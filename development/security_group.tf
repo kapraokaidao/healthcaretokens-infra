@@ -59,6 +59,13 @@ resource "aws_security_group" "healthcaretokens_sms" {
     security_groups = [aws_security_group.healthcaretokens_service.id]
   }
 
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
    # outbound internet access
   egress {
     from_port   = 0

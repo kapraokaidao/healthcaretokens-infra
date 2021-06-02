@@ -4,3 +4,6 @@ crash.log
 .terraform.lock.hcl
 secret.tfvars
 terraform.tfstate*
+.env
+*.pem
+*.lock*

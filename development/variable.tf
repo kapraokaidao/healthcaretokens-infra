@@ -21,6 +21,11 @@ variable "key_pair_name" {
   default = "healthcaretokens"
 }
 
+variable "key_pair_path" {
+  description = "Path to key pair file in local machine (can be relative path)"
+  type        = string
+}
+
 variable "db_username" {
   description = "Database administrator username"
   type        = string
