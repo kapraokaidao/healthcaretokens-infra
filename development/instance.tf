@@ -40,5 +40,6 @@ resource "aws_db_instance" "healthcaretokens" {
   name                   = "healthcaretokens"
   username               = var.db_username
   password               = var.db_password
+  skip_final_snapshot  = true
   vpc_security_group_ids = [aws_security_group.healthcaretokens_db.id]
 }
