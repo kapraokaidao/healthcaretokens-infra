@@ -11,7 +11,9 @@ variable "aws_amis" {
 
 variable "aws_instance_types" {
   default = {
-    ap-southeast-1 = "t2.small"
+    backend = "t2.small"
+    webapp  = "t2.small"
+    sms     = "t2.small"
   }
 }
 

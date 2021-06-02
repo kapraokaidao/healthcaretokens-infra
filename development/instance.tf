@@ -1,7 +1,7 @@
 resource "aws_instance" "backend" {
-  ami           = var.aws_amis[var.aws_region]
-  instance_type = var.aws_instance_types[var.aws_region]
-  key_name = var.key_pair_name
+  ami             = var.aws_amis[var.aws_region]
+  instance_type   = var.aws_instance_types["beckend"]
+  key_name        = var.key_pair_name
   security_groups = [aws_security_group.healthcaretokens_service.name]
 
   tags = {
@@ -10,9 +10,9 @@ resource "aws_instance" "backend" {
 }
 
 resource "aws_instance" "nhso_web" {
-  ami           = var.aws_amis[var.aws_region]
-  instance_type = var.aws_instance_types[var.aws_region]
-  key_name = var.key_pair_name
+  ami             = var.aws_amis[var.aws_region]
+  instance_type   = var.aws_instance_types["webapp"]
+  key_name        = var.key_pair_name
   security_groups = [aws_security_group.healthcaretokens_service.name]
 
   tags = {
@@ -21,9 +21,9 @@ resource "aws_instance" "nhso_web" {
 }
 
 resource "aws_instance" "hospital_web" {
-  ami           = var.aws_amis[var.aws_region]
-  instance_type = var.aws_instance_types[var.aws_region]
-  key_name = var.key_pair_name
+  ami             = var.aws_amis[var.aws_region]
+  instance_type   = var.aws_instance_types["webapp"]
+  key_name        = var.key_pair_name
   security_groups = [aws_security_group.healthcaretokens_service.name]
 
   tags = {
@@ -32,10 +32,10 @@ resource "aws_instance" "hospital_web" {
 }
 
 resource "aws_instance" "sms" {
-  ami           = var.aws_amis[var.aws_region]
-  instance_type = var.aws_instance_types[var.aws_region]
-  key_name = var.key_pair_name
-  security_groups = [aws_security_group.healthcaretokens_service.name]
+  ami             = var.aws_amis[var.aws_region]
+  instance_type   = var.aws_instance_types["sms"]
+  key_name        = var.key_pair_name
+  security_groups = [aws_security_group.healthcaretokens_sms.name]
 
   tags = {
     Name = "Healthcare token sms service"
@@ -51,6 +51,6 @@ resource "aws_db_instance" "healthcaretokens" {
   name                   = "healthcaretokens"
   username               = var.db_username
   password               = var.db_password
-  skip_final_snapshot  = true
+  skip_final_snapshot    = true
   vpc_security_group_ids = [aws_security_group.healthcaretokens_db.id]
 }
