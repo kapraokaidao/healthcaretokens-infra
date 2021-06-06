@@ -7,3 +7,4 @@ terraform.tfstate*
 .env
 *.pem
 *.lock*
+node_modules
