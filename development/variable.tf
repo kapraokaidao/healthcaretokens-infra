@@ -1,11 +1,12 @@
 variable "aws_region" {
   description = "AWS region to launch servers."
-  default     = "ap-southeast-1"
+  default     = "ap-northeast-1"
 }
 
 variable "aws_amis" {
   default = {
     ap-southeast-1 = "ami-0d058fe428540cd89"
+    ap-northeast-1 = "ami-0df99b3a8349462c6"
   }
 }
 
